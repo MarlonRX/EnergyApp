@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "387704664275",
+    "firebase_url": "https://energyapp-28e52-default-rtdb.firebaseio.com",
+    "project_id": "energyapp-28e52",
+    "storage_bucket": "energyapp-28e52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387704664275:android:5a03516093d3e0b548a426",
+        "android_client_info": {
+          "package_name": "com.example.energyapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt2ie0YhVOU7Ddt3m0bWo3fF7yuERI5lM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387704664275:android:30aed47716f3136448a426",
+        "android_client_info": {
+          "package_name": "com.example.energyappjava"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt2ie0YhVOU7Ddt3m0bWo3fF7yuERI5lM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1d3245"> <!-- Aquí puedes cambiar el color de fondo -->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="522dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/logoenergyapp"
+        android:scaleType="fitCenter"
+        android:scaleX="0.3"
+        android:scaleY="0.3"
+        android:src="@drawable/logobasic" />
+
+</RelativeLayout>
