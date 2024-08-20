@@ -8,14 +8,12 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String deviceId;
 
     // User for registration
-    public User(String email, String password, String name, String deviceId) {
+    public User(String email, String password, String name) {
         this.email = email;
         this.password = hashPassword(password);
         this.name = name;
-        this.deviceId = deviceId;
     }
 
     // User for login
@@ -37,10 +35,6 @@ public class User {
         return password;
     }
 
-    public String getDeviceId() {
-        return deviceId;
-    }
-
     // Setters
     public void setName(String name) {
         this.name = name;
@@ -52,10 +46,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = hashPassword(password);
-    }
-
-    public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId;
     }
 
     // Method to hash the password

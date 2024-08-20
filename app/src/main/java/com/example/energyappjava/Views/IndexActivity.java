@@ -20,11 +20,9 @@ public class IndexActivity extends ComponentActivity {
 
         indexController = new MeterController(this);
 
-        Button ModalButton = findViewById(R.id.menu_button);
         Button StoreButton = findViewById(R.id.store_button);
         Button ConsumeButton = findViewById(R.id.consume_button);
 
-        ModalButton.setOnClickListener(v -> indexController.showModal());
 
         StoreButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, StoreActivity.class);

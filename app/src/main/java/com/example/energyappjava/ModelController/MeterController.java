@@ -1,8 +1,6 @@
 package com.example.energyappjava.ModelController;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 
 public class MeterController {
 
@@ -12,23 +10,16 @@ public class MeterController {
         this.context = context;
     }
 
-    public void showModal() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Título del modal"); // Título del modal
-        builder.setMessage("Mensaje del modal"); // Mensaje del modal
-        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Acción al hacer clic en el botón "Aceptar"
-            }
-        });
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Acción al hacer clic en el botón "Cancelar"
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+    public String fetchMeasurement() {
+        // Fetch the measurement from the meter
+        return "100";
+    }
+
+    public String getPreviousMeasurement() {
+        return "ejemplo";
+    }
+
+    public void saveMeasurement(String measurement) {
+        // Save the measurement to the meter
     }
 }

@@ -39,7 +39,7 @@ public class RegisterActivity extends ComponentActivity {
             String username = usernameEdit.getText().toString();
             String password = passwordEditText.getText().toString();
             String deviceID = deviceIDText.getText().toString();
-            User newUser = new User(email, password, username, deviceID);
+            User newUser = new User(email, password, username);
             userController.registerUser(newUser);
         });
 
