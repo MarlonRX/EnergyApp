@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:background="#f1f0d2"
+    tools:ignore="ExtraText">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detalle del pedido"
+        android:textColor="#6d8ead"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:id="@+id/customer_address"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5dp"
+        android:autofillHints=""
+        android:background="@drawable/edittext_button"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:hint="Dirección"
+        android:textColorHint="#6d8ead"
+        android:textSize="20sp"
+        tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/customer_phone"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:background="@drawable/edittext_button"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:hint="Numero de teléfono"
+        android:textColorHint="#6d8ead"
+        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
+        tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
+
+    <EditText
+        android:id="@+id/details"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:autofillHints=""
+        android:background="@drawable/edittext_button"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:hint="Detalles del domicilio (Opcional)"
+        android:textColorHint="#6d8ead"
+        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
+        tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:textColor="#6d8ead"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Total:"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:textSize="17sp"
+        android:textColor="#6d8ead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"/>
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:background="@drawable/button_rounded"
+        android:text="Confirmar"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+</LinearLayout>

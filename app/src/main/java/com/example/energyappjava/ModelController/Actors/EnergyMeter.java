@@ -6,9 +6,18 @@ public class EnergyMeter {
     private String type;
     private String status;
     private String measure;
-    private Double price;
+    private double price;
 
-    public EnergyMeter(String name, String type, String status, String measure, Double price) {
+    public EnergyMeter(String name, String type, String status, String measure, double price) {
+        this.name = name;
+        this.type = type;
+        this.status = status;
+        this.measure = measure;
+        this.price = price;
+    }
+
+    //constructor for store
+    public EnergyMeter(String name, String type, double price) {
         this.name = name;
         this.type = type;
         this.status = status;
@@ -32,9 +41,10 @@ public class EnergyMeter {
         return measure;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -51,7 +61,7 @@ public class EnergyMeter {
         this.measure = measure;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

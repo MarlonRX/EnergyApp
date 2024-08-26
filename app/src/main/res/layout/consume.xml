@@ -9,23 +9,59 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/monthly_button"
+        android:layout_width="377dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/button_rounded4"
+        android:text="Consumo por hora"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/start_button"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/elipse"
-        android:text="Consumo"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constrainedHeight="false"
+        android:id="@+id/hourly_button"
+        android:layout_width="377dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button_rounded4"
+        android:text="Consumo por dia"
+        android:textColor="#fff"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/monthly_button" />
 
+    <Button
+        android:id="@+id/daily_button"
+        android:layout_width="377dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_rounded4"
+        android:text="Consumo por semana"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hourly_button" />
+
+    <Button
+        android:id="@+id/weekly_button"
+        android:layout_width="377dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_rounded4"
+        android:text="Consumo por mes"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daily_button" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -36,22 +72,9 @@
         android:scaleType="fitCenter"
         android:src="@drawable/logolight"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/menu_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:background="@drawable/menu_light"
-        android:text=""
-        android:textColor="#FFFFFF"
-        android:textSize="1sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
 
 
     <Button

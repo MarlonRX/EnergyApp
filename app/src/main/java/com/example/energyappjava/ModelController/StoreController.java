@@ -1,11 +1,10 @@
 // StoreController.java
 package com.example.energyappjava.ModelController;
 
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-
 import androidx.activity.ComponentActivity;
+import androidx.annotation.NonNull;
+
+import android.widget.TableLayout;
 
 import com.example.energyappjava.ModelController.Actors.EnergyMeter;
 import com.example.energyappjava.ModelController.Actors.Order;
@@ -28,39 +27,45 @@ public class StoreController {
         this.devicesTable = devicesTable;
     }
 
-    public List<EnergyMeter> fetchEnergyMeters() {
-        List<EnergyMeter> energyMeters = new ArrayList<>();
+    public void fetchEnergyMeters(FetchEnergyMetersCallback callback) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Devices");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    DataSnapshot typeSnapshot = snapshot.child("Type012");
-                    if (typeSnapshot.exists()) {
-                        String name = typeSnapshot.child("Name").getValue(String.class);
-                        String type = typeSnapshot.child("Type").getValue(String.class);
-                        String status = typeSnapshot.child("Status").getValue(String.class);
-                        String measure = typeSnapshot.child("Measure").getValue(String.class);
-                        Double price = Double.valueOf(typeSnapshot.child("Price").getValue(String.class).replace(",", ""));
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<EnergyMeter> energyMeters = new ArrayList<>();
+                for (DataSnapshot meterSnapshot : dataSnapshot.getChildren()) {
+                    String name = meterSnapshot.child("Name").getValue(String.class);
+                    String type = meterSnapshot.child("Type").getValue(String.class);
+                    double price = meterSnapshot.child("Price").getValue(double.class);
 
-                        EnergyMeter energyMeter = new EnergyMeter(name, type, status, measure, price);
-                        energyMeters.add(energyMeter);
-                    }
+                    EnergyMeter energyMeter = new EnergyMeter(name, type, price);
+                    energyMeters.add(energyMeter);
                 }
+                callback.onFetchEnergyMeters(energyMeters);
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
-        return energyMeters;
     }
 
-    public void createOrder(Order order) {
+    public interface FetchEnergyMetersCallback {
+        void onFetchEnergyMeters(List<EnergyMeter> energyMeters);
+    }
+
+    public void createOrder(Order order, Callback<Void> callback) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Orders");
-        databaseReference.push().setValue(order);
+        databaseReference.push().setValue(order)
+            .addOnSuccessListener(aVoid -> callback.onSuccess(null))
+            .addOnFailureListener(callback::onFailure);
+    }
+
+    public interface Callback<T> {
+        void onSuccess(T result);
+        void onFailure(Exception e);
     }
 
     public void cancelOrder(int orderId, UUID userId) {

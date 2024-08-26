@@ -67,6 +67,10 @@ public class UserController {
         }
     }
 
+    public User getUser() {
+        return new User(Objects.requireNonNull(auth.getCurrentUser()).getEmail(), "", "");
+    }
+
     public void registerUser(User user) {
         if (user.getEmail().isEmpty() || user.getPassword().isEmpty() || user.getName().isEmpty()) {
             Toast.makeText(context, "Por favor, ingresa tu email, contraseña y nombre de usuario", Toast.LENGTH_SHORT).show();
