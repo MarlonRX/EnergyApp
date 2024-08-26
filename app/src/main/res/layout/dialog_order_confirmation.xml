@@ -25,7 +25,6 @@
         android:layout_marginBottom="5dp"
         android:autofillHints=""
         android:background="@drawable/edittext_button"
-        android:fontFamily="sans-serif"
         android:gravity="center"
         android:hint="Dirección"
         android:textColorHint="#6d8ead"
@@ -37,7 +36,6 @@
         android:layout_width="320dp"
         android:layout_height="50dp"
         android:background="@drawable/edittext_button"
-        android:fontFamily="sans-serif"
         android:gravity="center"
         android:hint="Numero de teléfono"
         android:textColorHint="#6d8ead"
@@ -51,11 +49,10 @@
         android:layout_height="50dp"
         android:autofillHints=""
         android:background="@drawable/edittext_button"
-        android:fontFamily="sans-serif"
         android:gravity="center"
         android:hint="Detalles del domicilio (Opcional)"
         android:textColorHint="#6d8ead"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_marginBottom="5dp"
         tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
 

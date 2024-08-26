@@ -145,6 +145,7 @@ public class StoreActivity extends AppCompatActivity {
 
         EditText customerAddress = dialogView.findViewById(R.id.customer_address);
         EditText customerPhone = dialogView.findViewById(R.id.customer_phone);
+        EditText customerDetail = dialogView.findViewById(R.id.details);
         TextView priceView = dialogView.findViewById(R.id.price);
         Button confirmButton = dialogView.findViewById(R.id.confirm_button);
 
@@ -156,7 +157,7 @@ public class StoreActivity extends AppCompatActivity {
         confirmButton.setOnClickListener(v -> {
             String address = customerAddress.getText().toString();
             String phone = customerPhone.getText().toString();
-            String detail = "Detalle de la compra";
+            String detail = customerDetail.getText().toString();
 
             UserController userController = new UserController(this);
             User user = userController.getUser();
