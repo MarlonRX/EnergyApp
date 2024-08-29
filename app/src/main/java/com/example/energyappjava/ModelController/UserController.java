@@ -42,8 +42,7 @@ public class UserController {
                         .addOnCompleteListener(task -> {
                             ((MainActivity) context).hideProgressBar();
                             if (task.isSuccessful()) {
-                                Intent intent = new Intent(context, IndexActivity.class);
-                                context.startActivity(intent);
+                                goToIndexActivity();
                             } else {
                                 handleLoginFailure(task.getException());
                             }
@@ -54,6 +53,11 @@ public class UserController {
                 ((MainActivity) context).hideProgressBar();
             }
         }
+    }
+
+    public void goToIndexActivity() {
+        Intent intent = new Intent(context, IndexActivity.class);
+        context.startActivity(intent);
     }
 
     private void handleLoginFailure(Exception exception) {

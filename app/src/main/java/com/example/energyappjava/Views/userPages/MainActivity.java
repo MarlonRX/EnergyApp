@@ -30,21 +30,29 @@ public class MainActivity extends ComponentActivity {
 
         Button loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(v -> {
-            EditText emailEditText = findViewById(R.id.emailEditText);
-            EditText passwordEditText = findViewById(R.id.passwordEditText);
-            String email = emailEditText.getText().toString();
-            String password = passwordEditText.getText().toString();
-            User existentUser = new User(email, password);
-            showProgressBar();
-            userController.loginUser(existentUser);
+            authUser();
         });
 
         Button registerButton = findViewById(R.id.registerButton);
         registerButton.setOnClickListener(v -> {
-            Intent i = new Intent(MainActivity.this, RegisterActivity.class);
-            startActivity(i);
-            finish();
+            goToRegisterActivity();
         });
+    }
+
+    public void goToRegisterActivity() {
+        Intent i = new Intent(MainActivity.this, RegisterActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    public void authUser() {
+        EditText emailEditText = findViewById(R.id.emailEditText);
+        EditText passwordEditText = findViewById(R.id.passwordEditText);
+        String email = emailEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        User existentUser = new User(email, password);
+        showProgressBar();
+        userController.loginUser(existentUser);
     }
 
     public void showProgressBar() {

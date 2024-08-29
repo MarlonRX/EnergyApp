@@ -17,7 +17,6 @@ public class RegisterActivity extends ComponentActivity {
     private EditText usernameEdit;
     private EditText emailEditText;
     private EditText passwordEditText;
-    private EditText deviceIDText;
     private UserController userController;
 
     @Override
@@ -28,19 +27,13 @@ public class RegisterActivity extends ComponentActivity {
         usernameEdit = findViewById(R.id.nameEditText);
         emailEditText = findViewById(R.id.emailEditTextRegister);
         passwordEditText = findViewById(R.id.passwordEditTextRegister);
-        deviceIDText = findViewById(R.id.deviceIDText);
 
         Button registerButton = findViewById(R.id.registerButton);
 
         userController = new UserController(this);
 
         registerButton.setOnClickListener(v -> {
-            String email = emailEditText.getText().toString();
-            String username = usernameEdit.getText().toString();
-            String password = passwordEditText.getText().toString();
-            String deviceID = deviceIDText.getText().toString();
-            User newUser = new User(email, password, username);
-            userController.registerUser(newUser);
+            fetchNewUserData();
         });
 
         Button backButton = findViewById(R.id.loginButton);
@@ -49,5 +42,13 @@ public class RegisterActivity extends ComponentActivity {
             startActivity(i);
             finish();
         });
+    }
+
+    public void fetchNewUserData() {
+        String email = emailEditText.getText().toString();
+        String username = usernameEdit.getText().toString();
+        String password = passwordEditText.getText().toString();
+        User newUser = new User(email, password, username);
+        userController.registerUser(newUser);
     }
 }

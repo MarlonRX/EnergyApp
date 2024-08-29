@@ -155,44 +155,53 @@ public class StoreActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
 
         confirmButton.setOnClickListener(v -> {
-            String address = customerAddress.getText().toString();
-            String phone = customerPhone.getText().toString();
-            String detail = customerDetail.getText().toString();
-
-            UserController userController = new UserController(this);
-            User user = userController.getUser();
-
-            if(totalAmount == 0) {
-                Toast.makeText(this, "Hace falta seleccionar un producto para hacer un pedido", Toast.LENGTH_SHORT).show();
-                return;
-            };
-
-            if (!address.isEmpty() || !phone.isEmpty()) {
-                Order order = new Order(user, selectedItems, totalAmount, detail, address, phone);
-                storeController.createOrder(order, new StoreController.Callback<Void>() {
-                    @Override
-                    public void onSuccess(Void result) {
-                        Toast.makeText(StoreActivity.this, "Registro de pedido exitoso", Toast.LENGTH_SHORT).show();
-                        selectedItems.clear();
-                        populateOrderTable();
-                        updateTotalValue();
-                        dialog.dismiss();
-                        Intent intent = new Intent(StoreActivity.this, IndexActivity.class);
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onFailure(Exception e) {
-                        Toast.makeText(StoreActivity.this, "Error al registrar el pedido", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            } else {
-                // Show error message
-                Toast.makeText(this, "Diligencie correctamente el formulario por favor", Toast.LENGTH_SHORT).show();
-            }
+            fetchOrderData(customerAddress, customerPhone, customerDetail, dialog);
         });
 
         dialog.show();
+    }
+
+    private void fetchOrderData(EditText customerAddress, EditText customerPhone, EditText customerDetail, AlertDialog dialog) {
+        String address = customerAddress.getText().toString();
+        String phone = customerPhone.getText().toString();
+        String detail = customerDetail.getText().toString();
+
+        UserController userController = new UserController(this);
+        User user = userController.getUser();
+
+        if (totalAmount == 0) {
+            Toast.makeText(this, "Hace falta seleccionar un producto para hacer un pedido", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        ;
+
+        if (!address.isEmpty() || !phone.isEmpty()) {
+            Order order = new Order(user, selectedItems, totalAmount, detail, address, phone);
+            storeController.createOrder(order, new StoreController.Callback<Void>() {
+                @Override
+                public void onSuccess(Void result) {
+                    Toast.makeText(StoreActivity.this, "Registro de pedido exitoso", Toast.LENGTH_SHORT).show();
+                    selectedItems.clear();
+                    populateOrderTable();
+                    updateTotalValue();
+                    dialog.dismiss();
+                    goToIndexActivity();
+                }
+
+                @Override
+                public void onFailure(Exception e) {
+                    Toast.makeText(StoreActivity.this, "Error al registrar el pedido", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else {
+            // Show error message
+            Toast.makeText(this, "Diligencie correctamente el formulario por favor", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void goToIndexActivity() {
+        Intent intent = new Intent(StoreActivity.this, IndexActivity.class);
+        startActivity(intent);
     }
 
     private void updateTotalValue() {
