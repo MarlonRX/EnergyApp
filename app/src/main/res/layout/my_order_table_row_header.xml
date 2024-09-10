@@ -1,38 +1,40 @@
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/device_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        android:paddingLeft="8dp"
-        android:textColor="#000000" />
+        android:gravity="center"
+        android:text="Dispositivo"
+        android:textColor="#6d7aad" />
 
     <TextView
         android:id="@+id/device_type"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        android:paddingLeft="8dp"
-        android:textColor="#000000" />
+        android:gravity="center"
+        android:text="Tipo"
+        android:textColor="#6d7aad" />
 
     <TextView
         android:id="@+id/device_price"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight=".25"
-        android:paddingLeft="8dp"
-        android:textColor="#000000" />
+        android:gravity="center"
+        android:text="Precio"
+        android:textColor="#6d7aad" />
 
-    <Button
-        android:id="@+id/cancelButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/round_button_with_minus"
-        android:padding="0dp" />
+    <TextView
+        android:id="@+id/action_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight=".25"
+        android:gravity="center"
+        android:text="Cancelar"
+        android:textColor="#6d7aad" />
 </TableRow>

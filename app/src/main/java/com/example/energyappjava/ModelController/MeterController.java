@@ -1,18 +1,32 @@
 package com.example.energyappjava.ModelController;
 
 import android.content.Context;
+import java.io.IOException;
 
 public class MeterController {
-
     private final Context context;
+    private final BluetoothService bluetoothService;
+    private final String deviceAddress;
 
-    public MeterController(Context context) {
+    public MeterController(Context context, String deviceAddress) {
         this.context = context;
+        this.deviceAddress = deviceAddress;
+        this.bluetoothService = new BluetoothService(context);
     }
 
     public String fetchMeasurement() {
-        // Fetch the measurement from the meter
-        return "100";
+        if (bluetoothService.connect(deviceAddress)) {
+            try {
+                String data = bluetoothService.readData();
+                bluetoothService.close();
+                return data;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return "Error consiguiendo lecturas";
+            }
+        } else {
+            return "Conexión fallida";
+        }
     }
 
     public String getPreviousMeasurement() {
@@ -20,6 +34,6 @@ public class MeterController {
     }
 
     public void saveMeasurement(String measurement) {
-        // Save the measurement to the meter
+        // Save measurement to database
     }
 }

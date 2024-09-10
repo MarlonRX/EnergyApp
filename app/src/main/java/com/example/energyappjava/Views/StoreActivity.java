@@ -47,6 +47,10 @@ public class StoreActivity extends AppCompatActivity {
         Button indexButton = findViewById(R.id.measure_button);
         Button consumeButton = findViewById(R.id.consume_button);
         Button orderButton = findViewById(R.id.orderButton);
+
+        Button myOrdersButton = findViewById(R.id.myOrdersButton);
+        myOrdersButton.setOnClickListener(v -> storeController.fetchOrders(this::openMyOrdersDialog));
+
         totalValue = findViewById(R.id.totalValue);
 
         indexButton.setOnClickListener(v -> {
@@ -161,6 +165,46 @@ public class StoreActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    private void openMyOrdersDialog(List<Order> orders) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.my_orders_dialog, null);
+        builder.setView(dialogView);
+
+        renderOrderTable(dialogView, orders);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void renderOrderTable(View dialogView, List<Order> orders) {
+        TableLayout orderTable = dialogView.findViewById(R.id.my_orders_table);
+        orderTable.removeAllViews();
+
+        TableRow headerRow = (TableRow) getLayoutInflater().inflate(R.layout.my_order_table_row_header, null);
+        orderTable.addView(headerRow);
+
+        for (Order order : orders) {
+            TableRow row = (TableRow) getLayoutInflater().inflate(R.layout.order_table_row_item, null);
+
+            TextView nameView = row.findViewById(R.id.device_name);
+            nameView.setText(order.getValue().toString());
+
+            TextView typeView = row.findViewById(R.id.device_type);
+            typeView.setText(order.getDetail());
+
+            TextView priceView = row.findViewById(R.id.device_price);
+            priceView.setText(String.valueOf(order.getAddress()));
+
+            Button cancelButton = row.findViewById(R.id.cancelButton);
+            if (cancelButton != null) {
+                cancelButton.setOnClickListener(v -> showOrderConfirmationDialog());
+            }
+
+            orderTable.addView(row);
+        }
+    }
+
     private void fetchOrderData(EditText customerAddress, EditText customerPhone, EditText customerDetail, AlertDialog dialog) {
         String address = customerAddress.getText().toString();
         String phone = customerPhone.getText().toString();
@@ -173,7 +217,6 @@ public class StoreActivity extends AppCompatActivity {
             Toast.makeText(this, "Hace falta seleccionar un producto para hacer un pedido", Toast.LENGTH_SHORT).show();
             return;
         }
-        ;
 
         if (!address.isEmpty() || !phone.isEmpty()) {
             Order order = new Order(user, selectedItems, totalAmount, detail, address, phone);

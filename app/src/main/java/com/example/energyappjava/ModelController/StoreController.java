@@ -56,6 +56,31 @@ public class StoreController {
         void onFetchEnergyMeters(List<EnergyMeter> energyMeters);
     }
 
+    public interface FetchOrdersCallback {
+        void onFetchOrders(List<Order> orders);
+    }
+
+    public List<Order> fetchOrders(FetchOrdersCallback callback) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Orders");
+        List<Order> orders = new ArrayList<>();
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot orderSnapshot : dataSnapshot.getChildren()) {
+                    Order order = orderSnapshot.getValue(Order.class);
+                    orders.add(order);
+                }
+                callback.onFetchOrders(orders);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+        return orders;
+    }
+
     public void createOrder(Order order, Callback<Void> callback) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Orders");
         databaseReference.push().setValue(order)

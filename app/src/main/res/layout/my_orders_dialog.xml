@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_vertical"
+    android:background="#f1f0d2"
+    tools:ignore="ExtraText">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mis Pedidos"
+        android:textColor="#6d8ead"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"/>
+
+    <TableLayout
+        android:id="@+id/my_orders_table"
+        android:layout_width="368dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="48dp"
+        android:background="#fff"
+        android:stretchColumns="1"
+        />
+
+
+
+</LinearLayout>

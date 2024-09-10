@@ -29,7 +29,7 @@ public class IndexActivity extends ComponentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index);
 
-        indexController = new MeterController(this);
+        indexController = new MeterController(this, "DireccionDispositivoBluetooth");
 
         Button startButton = findViewById(R.id.start_button);
         Button storeButton = findViewById(R.id.store_button);
