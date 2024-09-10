@@ -3,11 +3,15 @@ Diseño de interfaces
 https://www.figma.com/design/ZWvonuB7NAfSfwqp45QQhY/Proyecto-energyAPP?node-id=54795-26389&node-type=canvas&t=wLXjzsa5r94p3JdC-0
 
 Manual
+
 [Manual.docx.pdf](https://github.com/user-attachments/files/16946847/Manual.docx.pdf)
+Diagramas
+
 [DIAGRAMAS ENERGYAPP.pdf](https://github.com/user-attachments/files/16946500/DIAGRAMAS.ENERGYAPP.pdf)
 
 
 Algunas imagenes de la aplicación:
+
 ![8a274c42-4fa6-4530-98b8-f942c4aab668](https://github.com/user-attachments/assets/cca0291a-8484-4b97-a6d6-aade8f8f60aa)
 ![0f4e3be7-fbac-487f-80dd-c5698d7d8ce8](https://github.com/user-attachments/assets/a466f107-5ad0-4853-bbc0-a1819909678c)
 ![d6bd93d9-33fa-46dc-b041-0a4046157cf7](https://github.com/user-attachments/assets/573c6671-3e7e-4828-9bd6-880fe921fbde)
