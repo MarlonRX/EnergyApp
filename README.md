@@ -15,7 +15,7 @@ https://www.figma.com/design/ZWvonuB7NAfSfwqp45QQhY/Proyecto-energyAPP?node-id=5
 ## Conectividad Bluetooth con ESP32
 
 La funcionalidad, empieza desde el codigo del esp32 mismo, en nuestro caso usamos el protocolo de activación de Bluetooth, 
-incluyendo al código BluetoothSerial.h, desde el setup del codigo inicializamos el metodo begin de la libreria con el 
+incluyendo al código a la utilidad BluetoothSerial.h, desde el setup del codigo inicializamos el metodo begin de la libreria con el 
 nombre del dispositivo, este viene definido por el modelo, tiende a ser "ESP32-BT-Slave", aqui esta un ejemplo practico 
 del codigo usado en el IDE de arduino:
 ```
